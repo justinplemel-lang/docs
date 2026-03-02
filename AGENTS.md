@@ -14,12 +14,12 @@
 
 ## Terminology
 
-<!-- Add product-specific terms and preferred usage -->
-<!-- Example: Use "workspace" not "project", "member" not "user" -->
+{/* Add product-specific terms and preferred usage */}
+{/* Example: Use "workspace" not "project", "member" not "user" */}
 
 ## Style preferences
 
-<!-- Add any project-specific style rules below -->
+{/* Add any project-specific style rules below */}
 
 - Use active voice and second person ("you")
 - Keep sentences concise — one idea per sentence
@@ -29,5 +29,13 @@
 
 ## Content boundaries
 
-<!-- Define what should and shouldn't be documented -->
-<!-- Example: Don't document internal admin features -->
+{/* Define what should and shouldn't be documented */}
+{/* Example: Don't document internal admin features */}
+
+## Cursor Cloud specific instructions
+
+- **Dev server**: Run `mint dev` from the workspace root (where `docs.json` lives). Serves on `http://localhost:3000` by default. Use `--port <N>` for a different port.
+- **Link checking** (lint equivalent): Run `mint broken-links`. The starter template has 3 pre-existing broken links in `essentials/images.mdx` and `essentials/settings.mdx`; these are not regressions.
+- **No build step**: This is a content-only Mintlify docs site. There is no `package.json`, no test suite, and no traditional build. The Mintlify CLI handles everything.
+- **Hot reload**: The `mint dev` server watches for file changes and hot-reloads automatically.
+- **AGENTS.md in .mintignore**: `AGENTS.md` is listed in `.mintignore` so the Mintlify CLI does not attempt to parse it as MDX (HTML comments cause parse errors).
