@@ -1,0 +1,67 @@
+---
+title: "Slide generation skill (brand CSS)"
+description: "Federato brand skill for on-brand PowerPoint presentations - colors, typography, 20+ slide layouts, crosshair grid, and reference assets"
+---
+
+**Skill detail**
+
+## Slide generation skill (brand CSS)
+
+A Claude skill for creating **on-brand Federato presentations**. It defines colors, typography, slide layouts, and design patterns so every deck stays consistent with the brand. The skill works with the base pptx workflow and includes pre-build discovery, compact helpers for large decks, and reference files.
+
+<Tip>
+**Download:** The latest package is **updated-federato-brand-skill.zip**. Get it from your team share or the link below. In Claude: Settings → Skills → + Add → upload the SKILL.md, then add **federato-brand.css**, **Logo-orange.png**, the **backgrounds/** folder, and any PDF exemplars so Claude has full context.
+</Tip>
+
+## What's in the updated skill
+
+### Core instruction (SKILL.md)
+
+- **Pre-build discovery** — Asks for deck type, audience, slide count, agenda, “walk out with” outcomes, and source material (e.g. Granola transcripts, prior decks) before building.
+- **Large deck construction (15+ slides)** — Compact helper functions (footer, crosshair, open-question bar, photo section divider), data-driven slide loops, and guidance to stay within output limits.
+- **Brand foundation** — The Pathfinder symbol usage and brand voice (confident, technical-but-accessible, forward-looking, data-driven, discovery-oriented).
+- **Color palette** — Primary (Meridian Maroon, Compass Cream, Atlas Green, Signal Orange, Beacon Teal), secondary (Grounded Brown, Insight Purple, Lumen Yellow), background colors, and usage rules. No pure black; Meridian for anchors; Grounded Brown for cards and table headers.
+- **Typography** — Frank Ruhl Libre (display/headlines), Inter (body). Explicit pptxgenjs usage: every `addText()` uses one of these. CSS variables for html-to-pptx.
+- **Crosshair grid system** — Signal Orange vertical/horizontal lines with diamond connector; placement rules; when to use (content slides, agendas) and when not (Walk Out With, centered cards). Photo section dividers use crosshair in Compass Cream on top of the overlay.
+- **20+ slide layouts** — Title (dark, halftone), Agenda, Section divider (solid + nature photography), Content (grid), Two-column comparison (ownership), Two-column halftone (title + content), Metrics/stats, Timeline (milestone + GTM arrow), Dependency/blockers table, Walk Out With, Discovery questions, Scoring matrix, Implementation scenario 2x2, UAT/roles table, Flywheel/cycle, GTM three-column, Current state (working/in progress), Cover/closing, Day recap, Success criteria, Capacity / “the math.”
+- **Footer format** — Standard external (logo, CONFIDENTIAL, page number) and internal/partner variants.
+- **Visual elements** — Halftone dots, Pathfinder usage, open-question callout bar, numbered badges, flywheel stage pills.
+- **Content patterns** — “Old Core vs. Federato,” ownership split, discovery questions, metrics callout, table structure.
+- **Checklist before finalizing** — Pre-flight QA so decks meet brand and structure rules.
+
+### Bundled assets
+
+| Asset | Purpose |
+|-------|---------|
+| **federato-brand.css** | CSS variables and utility classes for the html-to-pptx workflow |
+| **Logo-orange.png** | Federato logo for title slides and footers |
+| **backgrounds/** | Macro nature photos (IceGrooves, Leaf, Mossland, RiverDelta, Rock, SandDunes, Wood) for section dividers with overlay panels |
+| **Accelerant_Federato_Feb_OnSite.pdf** | Exemplar deck for visual reference |
+| **Billing_Model_Exemplar.pdf** | Exemplar for billing/model slides |
+
+## Color palette reference
+
+<Color variant="table">
+  <Color.Row title="Meridian Maroon">
+    <Color.Item name="Primary dark" value="#2D1D1A" />
+  </Color.Row>
+  <Color.Row title="Compass Cream">
+    <Color.Item name="Light / agendas" value="#E9D491" />
+  </Color.Row>
+  <Color.Row title="Signal Orange">
+    <Color.Item name="Accent / crosshair" value="#F55A26" />
+  </Color.Row>
+  <Color.Row title="Atlas Green">
+    <Color.Item name="Positive / sections" value="#81C661" />
+  </Color.Row>
+  <Color.Row title="Beacon Teal">
+    <Color.Item name="Secondary accent" value="#47FAC4" />
+  </Color.Row>
+  <Color.Row title="Grounded Brown">
+    <Color.Item name="Cards / tables" value="#A66B42" />
+  </Color.Row>
+</Color>
+
+<Card title="Download updated slide generation skill (.zip)" icon="download" href="/downloads/updated-federato-brand-skill.zip">
+  Get **updated-federato-brand-skill.zip** from this site. Add SKILL.md, federato-brand.css, Logo-orange.png, backgrounds folder, and PDF exemplars in Claude Settings → Skills.
+</Card>

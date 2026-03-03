@@ -1,0 +1,103 @@
+---
+title: "What are Claude skills?"
+description: "A short primer on what skills are, why they matter, and how to use them"
+---
+
+## The simple version
+
+A **Skill** is a set of instructions that teaches Claude how to handle specific tasks your way. Instead of re-explaining your preferences, brand guidelines, or workflows every single conversation, you teach Claude once — and it remembers.
+
+Think of it like onboarding a new employee with your playbooks. Except this employee never forgets, never loses the doc, and applies it automatically every time.
+
+## Why skills matter
+
+Without a skill, every conversation with Claude starts from zero. You have to re-explain context, re-share formatting preferences, re-describe your brand colors. It's like having a brilliant colleague with amnesia.
+
+With a skill installed, Claude already knows:
+
+- Your brand guidelines before you ask for a deck
+- Your writing tone before you draft an email
+- Your industry terminology before you explain a workflow
+- Your document structure before you create a report
+
+The result: you go from spending 5 minutes setting context to just saying "make me a deck" and getting something on-brand the first time.
+
+## What's inside a skill?
+
+A skill is just a markdown file called **SKILL.md**. No code, no plugins, no API keys. It's a structured document that tells Claude:
+
+| Section | Purpose |
+|--------|---------|
+| **What to do** | The task or domain the skill covers |
+| **How to do it** | Specific rules, patterns, templates, and preferences |
+| **What to avoid** | Common mistakes or things you don't want |
+| **Examples** | What good output looks like |
+
+For example, our [slide generation skill (brand CSS)](/skills/federato-brand) includes the exact hex codes for every brand color, which fonts to use for headlines vs. body text, 10+ slide layout patterns, and a pre-flight checklist Claude runs through before finalizing a presentation.
+
+## How to install a skill
+
+<Steps>
+  <Step title="Download the skill file">
+    Get the .zip containing SKILL.md and any supporting files (e.g. from the skill page in this hub).
+  </Step>
+  <Step title="Open the Claude desktop app">
+    Go to **Settings**.
+  </Step>
+  <Step title="Find the Skills section">
+    Click **+ Add** and upload the SKILL.md file. If the skill includes a .css file or assets folder, add those too.
+  </Step>
+  <Step title="Done">
+    Claude will use the skill automatically in every relevant conversation going forward. You don't re-upload. You don't remind Claude. It just knows.
+  </Step>
+</Steps>
+
+## Skills + MCP: the real power
+
+**Skills** tell Claude *how* to do things. **MCP** (Model Context Protocol) gives Claude *access* to your tools — Google Calendar, Gmail, Slack, Granola, and more.
+
+| Alone | Together |
+|-------|----------|
+| **Skill alone:** "Create a Federato-branded deck" — Claude builds it with the right colors and fonts. | **Skill + MCP:** "Prep me for my UFG call tomorrow" — Claude checks your calendar, pulls context from Granola transcripts, knows relationship dynamics from your account data, and formats everything using your preferred structure. All without you explaining any of it. |
+| **MCP alone:** "Check my calendar" — Claude sees your schedule. | This is what turns Claude from a chatbot into an actual workflow tool. |
+
+## What makes a good skill?
+
+The best skills are specific, opinionated, and grounded in real work.
+
+- **Be specific, not generic.** "Use professional formatting" is useless. "Use Frank Ruhl Libre for headlines at 36pt in Meridian Maroon (#2D1D1A)" produces consistent results.
+- **Include examples.** Show Claude what good looks like. A single example of a well-formatted Salesforce update is worth more than a paragraph describing one.
+- **Cover the edge cases.** What should Claude do when there's not enough data? When the format doesn't fit? The more decisions you make upfront, the less you correct later.
+- **Iterate based on feedback.** Your first version won't be perfect. Use the skill, notice where Claude gets it wrong, update the instructions. Skills get better over time.
+
+## Skills we have today
+
+| Skill | What it does | Status |
+|-------|----------------|--------|
+| Slide generation (brand CSS) | Creates on-brand PPTX presentations with our exact design system | Live |
+
+See the [slide generation skill](/skills/federato-brand) page for the download and full details.
+
+## Skills on the roadmap
+
+| Skill | What it would do | Priority |
+|-------|------------------|----------|
+| Meeting prep and debrief | Preps you before calls, processes transcripts after | High |
+| Email and Slack voice | Drafts messages that sound like you, not a robot | High |
+| Insurance industry context | Gives Claude deep insurance ops knowledge so you stop explaining basics | Medium |
+| Account plan / exec presentation | Structures strategic account content and narratives | Medium |
+| Requirements and discovery | Turns discovery sessions into clear requirements docs | Medium |
+
+[View the full roadmap →](/skills/roadmap)
+
+## AI Enablement Hub helper (optional)
+
+Want Claude to point people to the right hub pages when they ask "what are skills?" or "where's the Account App walkthrough?" Install the **AI Enablement Hub helper** skill so Claude can answer with short summaries and links.
+
+<Card title="Download AI Enablement Hub helper (.zip)" icon="download" href="/downloads/ai-enablement-hub-helper.zip">
+  Add the SKILL.md from this zip in Claude Settings → Skills. Claude will use it when users ask about the hub, skills, or tools.
+</Card>
+
+## Want a new skill?
+
+If there's a task you do repeatedly and find yourself re-explaining to Claude every time, that's a skill waiting to be built. Reach out on Slack or [submit a request](/feedback/request-skill) through the AI Enablement Hub.
