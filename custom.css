@@ -1,10 +1,10 @@
-/* Logo wordmark: icon + "AI Enablement" – keep readable, preserve aspect ratio */
+/* Logo wordmark: icon + "AI Enablement" – larger for visibility */
 img[src*="logo/light"],
 img[src*="logo/dark"] {
-  min-height: 36px !important;
-  height: 36px !important;
+  min-height: 56px !important;
+  height: 56px !important;
   width: auto !important;
-  max-width: 220px !important;
+  max-width: 320px !important;
   object-fit: contain;
 }
 
@@ -17,12 +17,20 @@ img[src*="logo.svg"] {
   object-fit: contain;
 }
 
-/* Sidebar/header logo container */
+/* Sidebar/header logo container – logo image */
 a[href="/"] img,
 [class*="sidebar"] a[href="/"] img {
-  min-height: 36px !important;
-  height: 36px !important;
+  min-height: 56px !important;
+  height: 56px !important;
   width: auto !important;
-  max-width: 220px !important;
+  max-width: 320px !important;
   object-fit: contain;
+}
+
+/* Sidebar/header – larger "AI Enablement" text next to logo */
+a[href="/"],
+[class*="sidebar"] a[href="/"] {
+  font-size: 1.35rem !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.02em;
 }
