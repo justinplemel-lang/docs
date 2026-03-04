@@ -21,12 +21,25 @@
         ]
       },
       {
-        "group": "Skills",
+        "group": "Claude",
         "pages": [
-          "skills/what-are-skills",
-          "skills/index",
-          "skills/federato-brand",
-          "skills/roadmap"
+          "claude/connected",
+          {
+            "group": "Skills",
+            "pages": [
+              "skills/what-are-skills",
+              {
+                "group": "Install & available skills",
+                "pages": [
+                  "skills/install",
+                  "skills/federato-brand",
+                  "skills/ai-enablement-hub-helper"
+                ]
+              },
+              "skills/roadmap"
+            ]
+          },
+          "claude/connections"
         ]
       },
       {

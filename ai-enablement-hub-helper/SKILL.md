@@ -24,11 +24,13 @@ If the question is unrelated (general coding, other products, non–AI Enablemen
 
 ## Key links (use the real hub URL when known)
 
+- **When everything's connected** — Video and intro to Skills + Connectors (Slack, Gmail, Granola, Calendar). Path: `/claude/connected`
+- **Connections** — How to connect Slack, Gmail, Granola, Calendar in Claude (Customize → Connectors). Path: `/claude/connections`
 - **What are Claude skills?** — Full primer: what’s in a skill, why they matter, skills + MCP, how to install.  
   Path: `/skills/what-are-skills`
 - **Slide generation skill (brand CSS)** — On-brand PPTX; download .zip.  
   Path: `/skills/federato-brand`
-- **Claude skills overview & install steps** — Path: `/skills/index`
+- **Claude skills overview & install steps** — Path: `/skills/install`
 - **Skill roadmap** — What’s live, what’s planned.  
   Path: `/skills/roadmap`
 - **Account Management App** — Walkthrough video + app link.  
