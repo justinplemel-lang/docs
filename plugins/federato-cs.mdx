@@ -1,0 +1,138 @@
+---
+title: "Federato CS Plugin"
+description: "Salesforce updates, meeting prep, and account intelligence — powered by Slack, Gmail, Granola, and Calendar"
+---
+
+## What it does
+
+The Federato CS plugin bundles everything a CSM needs to automate account work in Claude. Install one file and you get pre-wired connections to Slack, Gmail, Google Calendar, and Granola, plus slash commands that pull context from all four and generate ready-to-paste outputs.
+
+<CardGroup cols={2}>
+  <Card title="/salesforce-update" icon="pen-to-square">
+    Generates bi-weekly Salesforce activity updates from Granola transcripts, Slack threads, and email threads — for one account or all of them at once.
+  </Card>
+  <Card title="/meeting-prep" icon="calendar-check">
+    Builds a meeting prep doc for an upcoming customer call — pulls calendar details, past meeting notes, recent Slack activity, and open threads.
+  </Card>
+</CardGroup>
+
+## What's included
+
+| Component | Details |
+|---|---|
+| **Skills** | Salesforce bi-weekly update formatting, Federato brand guidelines |
+| **Commands** | `/salesforce-update`, `/meeting-prep` |
+| **Connectors** | Slack, Gmail, Google Calendar, Granola |
+| **Memory integration** | Stores your accounts, Slack channels, email domains, and optional workstreams |
+
+## Install
+
+<Steps>
+  <Step title="Get the plugin file">
+    Download `federato-cs-v0.2.0.plugin` from your team lead or the shared drive.
+  </Step>
+  <Step title="Open Cowork and install">
+    In the Claude desktop app, switch to Cowork. Go to **Settings → Plugins** and add the `.plugin` file.
+  </Step>
+  <Step title="Authorize connectors">
+    Cowork will prompt you to connect Slack, Gmail, Google Calendar, and Granola. Follow the OAuth flow for each — you only do this once.
+  </Step>
+  <Step title="Run your first command">
+    Type `/salesforce-update` to kick off first-run setup.
+  </Step>
+</Steps>
+
+## First-run setup
+
+The first time you run a command, Claude will ask you to configure your accounts. You'll see a template like this:
+
+```
+ACCOUNT CONFIGURATION
+====================
+Fill in each account you manage. Copy the block for additional accounts.
+
+Account: [Account name, e.g. "Accelerant"]
+Slack channels: [comma-separated, e.g. "#ext-accelerant, #accelerant-internal"]
+Email domains: [comma-separated, e.g. "accelerant.com, accelins.com"]
+Workstreams (optional): [e.g. "Project NEST, Package+ migration"]
+```
+
+Copy the block for each account you own (most CSMs have 3–5) and fill them in. Claude saves this to memory so you never need to re-enter it. Your configuration persists across sessions and works with scheduled tasks.
+
+### Updating your config
+
+If you pick up a new account or channels change, just tell Claude: *"Add Palomar to my accounts with channels #ext-palomar and #palomar-internal, email domain palomarspecialty.com."* Claude updates memory automatically.
+
+## Commands in detail
+
+### /salesforce-update
+
+Generates a bi-weekly activity update formatted for Salesforce. Run it with an account name, or type `all` to generate updates for every account you've configured.
+
+**What Claude does:**
+
+1. Checks your account config in memory
+2. Searches Granola for meetings in the last 7–14 days matching the account name, attendee domains, and workstreams
+3. Searches your Slack channels for relevant threads
+4. Searches Gmail for email threads matching the account's email domains
+5. Synthesizes everything into a structured update with ALL CAPS section headers and bullet points
+6. Saves to your working folder
+
+**Example:**
+
+```
+/salesforce-update Accelerant
+```
+
+```
+/salesforce-update all
+```
+
+### /meeting-prep
+
+Builds a prep doc for an upcoming customer call. Claude checks your calendar, pulls relevant history from Granola, surfaces recent Slack threads, and flags any open action items.
+
+**Example:**
+
+```
+/meeting-prep
+```
+
+Claude will show your upcoming meetings and ask which one to prep for.
+
+## Scheduling
+
+Once configured, you can run commands on a schedule. For example, to generate all Salesforce updates every other Friday morning:
+
+1. Tell Claude: *"Schedule /salesforce-update all to run every Friday at 8am"*
+2. Claude creates a scheduled task that runs automatically
+3. Each Friday, it pulls from Granola, Slack, and Gmail using your stored account config and saves the outputs
+
+Scheduled tasks use the memory system — no need to select a folder or be at your computer when they run.
+
+## Prerequisites
+
+<AccordionGroup>
+  <Accordion title="Cowork mode">
+    Plugins require Cowork in the Claude desktop app. Standard Claude chat doesn't support plugins, commands, or scheduled tasks.
+  </Accordion>
+  <Accordion title="Connector authorization">
+    You'll need to authorize Slack, Gmail, Google Calendar, and Granola when prompted. Each uses OAuth — Claude only accesses what you approve.
+  </Accordion>
+  <Accordion title="Granola account">
+    You need an active Granola account with meeting transcripts. The plugin searches your transcripts by account name and attendee email domains.
+  </Accordion>
+  <Accordion title="Chrome setup (for future browser-based plugins)">
+    If you plan to use plugins that interact with web apps (like Amplitude), Chrome needs to be launched with `--remote-debugging-port=9222`. See [What are plugins?](/plugins/what-are-plugins) for setup instructions.
+  </Accordion>
+</AccordionGroup>
+
+## Troubleshooting
+
+**"No account configuration found"** — Run `/salesforce-update` and complete the first-run setup template. Claude will save your accounts to memory.
+
+**Missing Granola results** — Granola search uses account names and attendee email domains. If a meeting was titled something generic (e.g. "Weekly Sync" instead of "Accelerant Weekly Sync"), add relevant workstream keywords to your account config so Claude can find it.
+
+**Slack channels returning nothing** — Double-check your channel names in the account config. Use the exact channel name including the `#` prefix.
+
+**Scheduled task not picking up config** — Scheduled tasks read from memory, not from your selected folder. Make sure you completed the first-run onboarding in a normal Cowork session before scheduling.

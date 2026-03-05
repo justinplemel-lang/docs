@@ -1,0 +1,144 @@
+---
+title: "Salesforce bi-weekly update"
+description: "Claude skill that generates plain-text Salesforce customer updates from Granola, Slack, and Gmail - ready to copy-paste"
+---
+
+<Info title="Skill detail">
+Every two weeks, each CSM writes a status update for every account in their book and pastes it into Salesforce. This skill does the heavy lifting — it pulls from your Granola meeting notes, Slack threads, and Gmail from the last 1–2 weeks, then generates an executive-ready, plain-text update formatted for direct copy-paste into Salesforce. No markdown, no formatting issues, no starting from a blank text box.
+
+The skill is designed to work as a **Cowork automation** that runs on your bi-weekly cadence, but it also works in a normal Claude chat if you just need a quick update.
+</Info>
+
+<CardGroup cols={2}>
+  <Card title="Download skill (.zip)" icon="download" href="https://github.com/justinplemel-lang/docs/releases/download/v1.0/salesforce-biweekly-update.zip">
+    Upload this to Claude: **Customize → Skills → + Add**. Do not unzip.
+  </Card>
+  <Card title="Download my-accounts.txt" icon="file-lines" href="https://github.com/justinplemel-lang/docs/releases/download/v1.0/my-accounts.txt">
+    Separate file - save to your Cowork working folder and edit with your account names. This is NOT part of the skill upload.
+  </Card>
+</CardGroup>
+
+## Prerequisites
+
+Before installing, make sure you have:
+
+- **Code execution enabled** - Settings → Capabilities → Code execution and file creation
+- **Connectors enabled** - The skill pulls context automatically from three sources. Go to Customize → Connectors and make sure these are connected:
+  - **Granola** - Your meeting transcripts. This is the richest data source. If you're not running Granola on your customer calls, the skill will still work but the output won't be as strong.
+  - **Slack** - Messages and threads mentioning your accounts across customer channels, internal CS channels, and engineering/product channels.
+  - **Gmail** - Email threads with or about your accounts.
+
+## How to install
+
+<Steps>
+  <Step title="Download the skill zip">
+    Use the download button above. Do not unzip it.
+  </Step>
+  <Step title="Upload to Claude">
+    In Claude, go to **Customize → Skills → + Add → Upload a skill** and select the .zip file.
+  </Step>
+  <Step title="Verify it's toggled on">
+    The skill should appear in your Skills list as "salesforce-biweekly-update." Make sure the toggle is ON.
+  </Step>
+  <Step title="Download my-accounts.txt separately">
+    Use the download button above. Open it in any text editor, delete the example lines, and add your actual account names - one per line. Save it in your **Cowork working folder** (not in Claude Skills - this is a separate file that Cowork reads at runtime).
+  </Step>
+</Steps>
+
+## How to use
+
+### Option 1: Cowork automation (recommended)
+
+This is the intended workflow. Set up a recurring Cowork task that runs every other Friday and generates updates for all your accounts automatically.
+
+<Steps>
+  <Step title="Make sure my-accounts.txt is in your Cowork folder">
+    If you haven't already, download the template, replace the examples with your account names (one per line), and save it in your Cowork working folder.
+  </Step>
+  <Step title="Set up the scheduled task">
+    In Cowork, use `/schedule` and configure:
+    - **Frequency:** Every other Friday (align to your team's bi-weekly cadence)
+    - **Prompt:** "Using the salesforce-biweekly-update skill, read my-accounts.txt and generate a Salesforce bi-weekly update for each account listed. Search Granola, Slack, and Gmail for context on each account from the last 7-14 days. Save each update as a separate .txt file named [AccountName]_biweekly_[date].txt"
+    - **Connectors:** Granola, Slack, Gmail
+  </Step>
+  <Step title="Review, edit, and paste">
+    Cowork generates a .txt file for each account. Open each one, review the content, make any edits, then paste into Salesforce. The output is plain text so it pastes cleanly with no formatting issues.
+  </Step>
+</Steps>
+
+### Option 2: Ask Claude in chat
+
+If you need a quick update or want to try the skill before setting up Cowork, open a new conversation and say:
+
+```
+Write my bi-weekly update for Accelerant
+```
+
+Claude will search your Granola meetings, Slack, and Gmail for the last 7-14 days of activity on that account and generate the update. You can also do multiple accounts at once:
+
+```
+Write my bi-weekly updates for Ascot, Kettle, and Velocity Risk
+```
+
+### Option 3: Paste your own notes
+
+If you don't have connectors set up or want to provide specific context:
+
+```
+Here are my notes from this week. Write my bi-weekly update for UFG:
+
+[paste your notes here]
+```
+
+## What the output looks like
+
+The output is plain text formatted for Salesforce. ALL CAPS headers with a dash, then 3-5 sentences of narrative per section with specific names, dates, and numbers. Active implementation accounts will typically have 4-8 sections. Steady-state accounts might have 2-3.
+
+```
+03/04/26
+
+UAT ENVIRONMENT LAUNCHED - Jackson delivered UAT credentials to the
+full Accelerant team on 2/26 including Jeffrey Noe, Alex Carr, Reese
+Mularz, Thomas Zack, Cathleen Gawlik, and Venkat Raman. A password
+reset bug was identified same-day and patched that evening. PACE team
+received separate credentials for external API connections on 2/25,
+with updated vault links sent 3/3 expiring 3/13.
+
+PREMIUM FINANCING - Made the decision to move from APFC/Vertafore to
+IPFS for premium financing. Vertafore's timeline was not going to get
+us to launch, and going live without a financing option would
+negatively impact hit ratios. Alex has communicated this change to
+the Leavitt team. We are not closing the door on APFC permanently -
+once Vertafore is ready to deliver a great experience we are happy to
+revisit.
+
+GO-LIVE TIMELINE - Binding target is now May 1 with earliest policy
+effective date of May 1, moved from the original March 1 target. The
+delay is driven by forms complexity and IPFS integration timeline.
+Estimated missed revenue from the April delay is approximately $2M
+against a 2026 target of $20M booked / $80M run rate.
+
+BILLING - Had a productive session with Goldman Sachs to
+pressure-test the platform fee structure. Landing on a 1% platform
+fee for ACH with a higher rate for credit cards, working through cap
+structure for larger premiums. Core billing functionality is
+feature-complete and ready for UAT.
+```
+
+## Tips for getting the best output
+
+- **Run Granola on your customer calls.** Granola meeting notes are by far the richest data source. If Granola doesn't have your meetings, the skill is working with much less context.
+- **The skill auto-expands the search window.** It starts with the last 7 days. If there aren't enough substantive topics, it automatically expands to 14 days and notes that at the top of the output.
+- **You can edit after the fact.** If the output is missing something, tell Claude: "Add a section about the billing discussion from Tuesday's call." If something is wrong: "The go-live date should be April 15, not May 1 - fix that section."
+- **Low-activity accounts get shorter updates.** The skill generates 2-3 sections for quiet accounts rather than padding with filler. That's intentional.
+- **When you add or remove accounts**, just update your `my-accounts.txt` file. The Cowork task reads it fresh each run.
+
+## What this skill does NOT do
+
+- It does not post directly to Salesforce - the output is for copy-paste
+- It does not set account health status (Red/Yellow/Green) - you add that yourself
+- It does not create action items or assign owners - it reports what happened and what's coming
+
+## Questions?
+
+Reach out to Justin Plemel if you have questions, run into issues, or want help getting set up with Cowork.

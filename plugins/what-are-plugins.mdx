@@ -1,0 +1,99 @@
+---
+title: "What are plugins?"
+description: "How plugins differ from skills, what they bundle, and why they matter for automation"
+---
+
+## The short version
+
+A **plugin** is a packaged bundle that gives Claude everything it needs to handle a workflow end-to-end — skills, slash commands, and pre-wired connections to tools like Slack, Gmail, Granola, and Calendar. Instead of installing each piece separately, you install one `.plugin` file and Claude is ready to go.
+
+If a skill is like handing Claude a procedures manual, a plugin is like onboarding a new team member with the manual *plus* logins to every system they need *plus* a set of commands they can run on a schedule.
+
+## Skills vs. plugins
+
+| | Skill | Plugin |
+|---|---|---|
+| **What it is** | A single SKILL.md instruction file | A bundle of skills, commands, and connectors |
+| **What it teaches** | One domain (e.g. brand guidelines, voice) | Full workflows across multiple tools |
+| **Connections** | None — you add connectors separately | Pre-wired (Slack, Gmail, Calendar, Granola, etc.) |
+| **Slash commands** | No | Yes — e.g. `/salesforce-update`, `/meeting-prep` |
+| **Scheduled tasks** | No | Yes — run commands automatically (e.g. every Friday at 8am) |
+| **Install method** | Upload .zip to Customize → Skills | Install .plugin file in Cowork |
+| **Where it runs** | Claude chat or Cowork | Cowork (required for commands and scheduling) |
+
+Skills are still the right choice for single-domain instruction sets like brand guidelines or writing voice. Plugins are for workflows that touch multiple tools and benefit from automation.
+
+## What's inside a plugin?
+
+A plugin is a `.plugin` file (a zip archive) containing:
+
+**Skills** — SKILL.md files that teach Claude domain knowledge and formatting rules, just like standalone skills.
+
+**Commands** — Markdown files that define slash commands. Type `/salesforce-update` and Claude executes a multi-step workflow: check memory for your accounts, pull data from Granola + Slack + Gmail, generate the update, and save it.
+
+**Connectors** — An `.mcp.json` file that declares which external tools the plugin needs. When you install the plugin, Cowork prompts you to authorize each connector (Slack, Gmail, etc.) — no manual setup.
+
+**Memory integration** — Plugins can store per-user configuration (like which accounts you own, which Slack channels to monitor) in Claude's memory system. This persists across sessions and works with scheduled tasks.
+
+## How plugins use Chrome
+
+Some plugins interact with web applications that don't have MCP connectors — tools like Amplitude, Salesforce, or internal dashboards. For these, Claude uses the Chrome browser connector to navigate, read, and extract data directly from the web UI.
+
+<Warning>
+**Chrome setup required for browser-based plugins.** Chrome must be launched with the remote debugging flag for Claude to read page content. Without it, Claude can open tabs but can't see what's on them. See the setup steps below.
+</Warning>
+
+### macOS
+
+Quit Chrome completely (check Activity Monitor), then relaunch from Terminal:
+
+```bash
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222
+```
+
+### Windows
+
+```bash
+"C:\Program Files\Google\Chrome\Application\chrome.exe" --remote-debugging-port=9222
+```
+
+### Making it permanent (macOS)
+
+To avoid running the Terminal command every time, you can create a simple Automator app or shell alias. Ask in Slack if you'd like help setting this up.
+
+## Installing a plugin
+
+<Steps>
+  <Step title="Get the .plugin file">
+    Download or receive the `.plugin` file from your team (e.g. `federato-cs-v0.2.0.plugin`).
+  </Step>
+  <Step title="Open Cowork">
+    Plugins run in Cowork mode. Open the Claude desktop app and switch to Cowork.
+  </Step>
+  <Step title="Install the plugin">
+    Go to **Settings → Plugins** and add the `.plugin` file. Cowork will detect the bundled connectors and prompt you to authorize each one.
+  </Step>
+  <Step title="Authorize connectors">
+    Follow the OAuth prompts for Slack, Gmail, Google Calendar, and Granola. You only do this once.
+  </Step>
+  <Step title="Run your first command">
+    Type a slash command like `/salesforce-update` and Claude will walk you through first-run setup (which accounts you own, Slack channels, etc.).
+  </Step>
+</Steps>
+
+## Scheduled tasks
+
+Plugins unlock scheduled automation. Once your accounts are configured, you can set a command to run automatically — for example, generating Salesforce bi-weekly updates every other Friday at 8am. Claude pulls from Granola, Slack, and Gmail on its own, writes the updates, and saves them for your review.
+
+Scheduled tasks use Claude's memory system for configuration (not local files), so they work without you selecting a folder each time.
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Federato CS Plugin" icon="plug" href="/plugins/federato-cs">
+    Install guide, commands, and setup for the CS team plugin.
+  </Card>
+  <Card title="What are skills?" icon="graduation-cap" href="/skills/what-are-skills">
+    If you're new to skills, start here — plugins build on the same concepts.
+  </Card>
+</CardGroup>

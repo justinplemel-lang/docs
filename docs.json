@@ -33,10 +33,18 @@
                 "pages": [
                   "skills/install",
                   "skills/federato-brand",
-                  "skills/ai-enablement-hub-helper"
+                  "skills/ai-enablement-hub-helper",
+                  "skills/salesforce-biweekly-update"
                 ]
               },
               "skills/roadmap"
+            ]
+          },
+          {
+            "group": "Plugins",
+            "pages": [
+              "plugins/what-are-plugins",
+              "plugins/federato-cs"
             ]
           },
           "claude/connections"
