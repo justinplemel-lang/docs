@@ -6,15 +6,21 @@ description: "Skills you can install today - brand, workflows, and domain knowle
 
 **Claude Skills**
 
-## Skills you can install today
+## Two ways to get skills
 
-Claude Skills are instruction files that teach Claude specific workflows, brand guidelines, and domain knowledge. Download and add them to your Claude settings.
+Skills and Plugins are two different install paths for two different modes of using Claude.
+
+**Path 1: Individual skills (for regular Claude chat)**  
+Skills are individual SKILL.md files you upload one at a time into Claude's Project settings. Use this path if you're working in regular Claude chat (not Cowork) or if you only want specific skills. Each skill works independently.
+
+**Path 2: The Federato CS Plugin (for Cowork)**  
+The plugin is a .plugin bundle you install through Cowork. It packages all three skills together with pre-wired connectors (Slack, Gmail, Calendar, Granola) and slash commands (`/salesforce-update`, `/meeting-prep`). Use this path if you're using Cowork for automation and scheduled tasks.
 
 <Card title="New to skills?" icon="book-open" href="/skills/what-are-skills">
   Read [What are Claude skills?](/skills/what-are-skills) for the full primer — why they matter, what's inside a SKILL.md, skills + MCP, and what makes a good skill.
 </Card>
 
-## Available skills
+## Available skills (individual installs)
 
 <Columns cols={2}>
   <Card
@@ -25,23 +31,24 @@ Claude Skills are instruction files that teach Claude specific workflows, brand 
     Generates slides using Federato brand CSS — exact colors, typography, crosshair grid system, halftone patterns, and slide layouts. Includes Frank Ruhl Libre + Inter typography, Signal Orange accents, and the full Meridian Maroon palette.
   </Card>
   <Card
-    title="AI Enablement Hub helper"
-    icon="book-open"
-    href="/skills/ai-enablement-hub-helper"
-  >
-    Teaches Claude to point people to the right hub pages when they ask "what are skills?", "where's the Account App walkthrough?", or how to request a skill. Download from the [AI Enablement Hub helper](/skills/ai-enablement-hub-helper) page.
-  </Card>
-  <Card
     title="Salesforce bi-weekly update"
     icon="file-lines"
     href="/skills/salesforce-biweekly-update"
   >
-    Generates plain-text Salesforce customer updates from Granola, Slack, and Gmail. Pulls the last 1-2 weeks of account activity and formats it for direct copy-paste into Salesforce. Includes Cowork automation for scheduled runs.
+    Generates plain-text Salesforce customer updates from Granola, Slack, and Gmail. Pulls the last 1-2 weeks of account activity and formats it for direct copy-paste into Salesforce.
   </Card>
-  <Card title="More skills coming soon" icon="sparkles">
-    Meeting prep & debrief, email/Slack voice, insurance industry context, and more are on the roadmap. [Submit a request](/feedback/request-skill) to prioritize what matters to you.
+  <Card
+    title="Meeting prep template"
+    icon="calendar-check"
+    href="/plugins/federato-cs#meeting-prep"
+  >
+    Builds branded meeting prep Word documents with context pulled from Calendar, Granola transcripts, and Slack threads. Includes solved/open issue tracking.
   </Card>
 </Columns>
+
+<Note>
+Using Cowork for automation? The [Federato CS Plugin](/plugins/federato-cs) bundles all three skills with pre-wired connectors and slash commands, so you don't need to install them individually.
+</Note>
 
 <Note>
 **Download:** Use the download button on each skill's page (e.g. [slide generation skill](/skills/federato-brand)) to get the .zip file.
@@ -78,6 +85,6 @@ Claude Skills are instruction files that teach Claude specific workflows, brand 
 
 <img src="/images/install-skill/step3-upload-skill.png" alt="Skills page with Upload a skill option in the menu" />
 
-**4. Select your .zip** — Drag and drop your skill .zip (e.g. `ai-enablement-hub-helper.zip` or `updated-federato-brand-skill.zip`) or click to browse.
+**4. Select your .zip** — Drag and drop your skill .zip (e.g. `updated-federato-brand-skill.zip` or `salesforce-biweekly-update.zip`) or click to browse.
 
 <img src="/images/install-skill/step4-select-zip.png" alt="Upload skill dialog and file browser showing skill zip files" />

@@ -1,0 +1,40 @@
+---
+title: "How it works"
+description: "From chatting to delegating: how Skills and Plugins turn Claude into a teammate"
+---
+
+## From chatting to delegating
+
+Most AI tools work like a conversation. You ask a question, get an answer, maybe copy it somewhere. Repeat. That's useful, but it means you're doing the heavy lifting: assembling context, formatting output, managing the back-and-forth.
+
+<img src="/images/workflow-shift.png" alt="The Workflow Shift: BEFORE (Chat) human in the loop vs AFTER (Agent) human on the loop" />
+
+With Skills and Plugins, Claude becomes something closer to a teammate. You say "prep me for my UFG call" and walk away. Claude checks your calendar, pulls context from Granola transcripts, reviews Slack threads, and delivers a formatted meeting prep doc. You review the result instead of building it.
+
+This is the shift from **human in the loop** (you do the work, AI assists) to **human on the loop** (AI does the work, you review and direct).
+
+## Where the pieces fit
+
+Skills, Connectors, and Plugins aren't separate tools; they're layers in the same system. Here's how they stack up.
+
+<img src="/images/platform-stack.png" alt="How It All Fits Together: Claude Models, Agent SDK, Claude Code and Cowork, Connectors, Skills and Plugins" />
+
+**Claude Models** are the foundation, the intelligence behind everything.
+
+**The Agent SDK** is the shared runtime that powers both Claude Code (for developers) and Cowork (for everyone else, including us). Same engine, different interface.
+
+**Connectors** give Claude access to your tools: Slack, Gmail, Google Calendar, and Granola. This is how Claude sees your world instead of asking you to describe it.
+
+**Skills and Plugins** are your playbooks. A Skill teaches Claude one thing well (like our brand guidelines for decks). A Plugin bundles multiple Skills with Connectors and commands into one install (like the Federato CS Plugin that handles Salesforce updates and meeting prep together).
+
+The key insight: anything you learn at one layer works everywhere. The same Connectors power both standalone Skills and bundled Plugins. The same brand Skill works whether you're in Cowork or Claude Code.
+
+## What this means for you
+
+You don't need to be technical to build your own AI agent. That's what Skills and Plugins are: a way to teach Claude your specific workflows, preferences, and context so it can do real work autonomously.
+
+Start with a Skill. Install the Federato CS Plugin. Connect your tools. The more context Claude has, the less you explain and the more you delegate.
+
+<Tip>
+Ready to get started? [Install your first Skill](/skills/install) or explore the [Federato CS Plugin](/plugins/federato-cs).
+</Tip>

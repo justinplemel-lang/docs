@@ -23,6 +23,7 @@
       {
         "group": "Claude",
         "pages": [
+          "claude/how-it-works",
           "claude/connected",
           {
             "group": "Skills",
@@ -33,11 +34,9 @@
                 "pages": [
                   "skills/install",
                   "skills/federato-brand",
-                  "skills/ai-enablement-hub-helper",
                   "skills/salesforce-biweekly-update"
                 ]
-              },
-              "skills/roadmap"
+              }
             ]
           },
           {
