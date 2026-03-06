@@ -1,0 +1,83 @@
+---
+title: "Meeting prep template"
+description: "Claude skill that builds branded meeting prep Word documents with context from Calendar, Granola, Slack, and Gmail"
+---
+
+<Info title="Skill detail">
+Before every customer call, you need context: what was discussed last time, what's still open, who's attending, and what to bring up. This skill pulls from your connected tools and generates a branded Word document with everything organized: solved/open issue tracking, attendee context, talking points, and internal-only notes.
+</Info>
+
+Ready to install? Head to the [Install & available skills](/skills/install) page to download.
+
+## Prerequisites
+
+Before using this skill, make sure you have:
+
+- **Code execution enabled** — Settings → Capabilities → Code execution and file creation
+- **Connectors enabled** — The skill pulls context from four sources. Go to Customize → Connectors and make sure these are connected:
+  - **Granola** — Meeting transcripts including 1:1s with key contacts. The richest data source for context on what's been discussed.
+  - **Slack** — Channel messages and threads about the account.
+  - **Gmail** — Email threads with customer contacts.
+  - **Google Calendar** — Upcoming meeting details, attendees, and scheduling context.
+
+## How to use
+
+### Option 1: Cowork with `/meeting-prep` command (recommended)
+
+Use the slash command in Cowork:
+
+```
+/meeting-prep Accelerant
+```
+
+Claude pulls from Granola (including 1:1s with key contacts), Slack, Gmail, and Calendar. It cross-references solved vs. unsolved items with owner-change detection and generates a branded .docx. The command will ask if there are any additional Slack channels to check beyond your configured ones.
+
+You can also schedule this as a recurring task before regular customer calls.
+
+### Option 2: Ask Claude in chat
+
+Upload the skill zip, then say:
+
+```
+Prep me for my call with Accelerant
+```
+
+or
+
+```
+Get me ready for tomorrow's meeting with UFG
+```
+
+### Option 3: Paste your own notes
+
+Upload the skill zip and paste meeting notes or context:
+
+```
+Here are my notes from the last few calls with Kettle. Build me a meeting prep doc:
+
+[paste your notes here]
+```
+
+## What the output looks like
+
+A branded Word document (.docx) with Federato styling that includes:
+
+- **Priority topics and talking points** — what to bring up in the meeting
+- **Solved/open items** with status badges: [DONE], [IN PROGRESS], [NO UPDATE], [CHANGED]
+- **Attendee context** — who's on the call and what they care about
+- **Questions to ask** — specific follow-ups based on recent activity
+- **Internal-only context** — things you should know but shouldn't say out loud
+- **Customer temperature** — overall read on account health and relationship
+
+## Tips for getting the best output
+
+- **Run Granola on all customer calls**, including 1:1s with key contacts. The more meeting history Claude has, the better it tracks what's been solved vs. what's still open.
+- **The skill checks for owner changes.** If an item was assigned to one person and a different person picks it up, it flags that with a [CHANGED] badge so you don't miss it.
+- **You can add context.** After generating, tell Claude: "Also add that we need to discuss the Q2 renewal" and it will regenerate with the additional talking point.
+- **To update your accounts**, just tell Claude: "Add a new account" or "Update my Accelerant channels." Same memory system as the Salesforce update skill.
+
+## What this skill does NOT do
+
+- It does not create calendar events or send meeting invites
+- It does not email the prep doc to attendees
+- It does not record the meeting — use Granola for that

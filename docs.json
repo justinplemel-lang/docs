@@ -34,7 +34,8 @@
                 "pages": [
                   "skills/install",
                   "skills/federato-brand",
-                  "skills/salesforce-biweekly-update"
+                  "skills/salesforce-biweekly-update",
+                  "skills/meeting-prep-template"
                 ]
               }
             ]
@@ -52,9 +53,7 @@
       {
         "group": "Tools",
         "pages": [
-          "tools/account-app",
-          "tools/granola",
-          "tools/automations"
+          "tools/account-app"
         ]
       },
       {
