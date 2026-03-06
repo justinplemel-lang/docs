@@ -21,33 +21,44 @@
         ]
       },
       {
+        "group": "Getting started",
+        "pages": [
+          "getting-started"
+        ]
+      },
+      {
         "group": "Claude",
         "pages": [
           "claude/how-it-works",
-          "claude/connected",
-          {
-            "group": "Skills",
-            "pages": [
-              "skills/what-are-skills",
-              {
-                "group": "Install & available skills",
-                "pages": [
-                  "skills/install",
-                  "skills/federato-brand",
-                  "skills/salesforce-biweekly-update",
-                  "skills/meeting-prep-template"
-                ]
-              }
-            ]
-          },
-          {
-            "group": "Plugins",
-            "pages": [
-              "plugins/what-are-plugins",
-              "plugins/federato-cs"
-            ]
-          },
+          "claude/connected"
+        ]
+      },
+      {
+        "group": "Skills",
+        "pages": [
+          "skills/what-are-skills",
+          "skills/federato-brand",
+          "skills/salesforce-biweekly-update",
+          "skills/meeting-prep-template"
+        ]
+      },
+      {
+        "group": "Plugins",
+        "pages": [
+          "plugins/what-are-plugins",
+          "plugins/federato-cs"
+        ]
+      },
+      {
+        "group": "Connections",
+        "pages": [
           "claude/connections"
+        ]
+      },
+      {
+        "group": "Install",
+        "pages": [
+          "install"
         ]
       },
       {
@@ -59,8 +70,7 @@
       {
         "group": "Training",
         "pages": [
-          "training/videos",
-          "training/guides"
+          "training/videos"
         ]
       },
       {

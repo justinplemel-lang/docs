@@ -30,7 +30,7 @@ If the question is unrelated (general coding, other products, non–AI Enablemen
   Path: `/skills/what-are-skills`
 - **Slide generation skill (brand CSS)** — On-brand PPTX; download .zip.  
   Path: `/skills/federato-brand`
-- **Claude skills overview & install steps** — Path: `/skills/install`
+- **Claude skills overview & install steps** — Path: `/install`
 - **Skill roadmap** — What’s live, what’s planned.  
   Path: `/skills/roadmap`
 - **Account Management App** — Walkthrough video + app link.  
