@@ -24,7 +24,7 @@ You only need to do this when you have a **new version** of a skill zip to share
 - Scroll to the **“Assets”** section at the bottom.
 - Either **drag and drop** the two zip files into the box, or click **“Attach binaries by dropping them here or selecting them.”**
 - Attach:
-  1. **updated-federato-brand-skill.zip**
+  1. **federato-brand-with-icons.zip**
   2. **ai-enablement-hub-helper.zip**
 
 (Use the files from your Downloads folder or wherever you keep them.)
@@ -41,7 +41,7 @@ The docs site (Mintlify) already points to these URLs. Once the release is publi
 **Direct links (after you publish a release with tag `v1.0`):**
 
 - Slide generation skill:  
-  `https://github.com/justinplemel-lang/docs/releases/download/v1.0/updated-federato-brand-skill.zip`
+  `https://github.com/justinplemel-lang/docs/releases/download/v1.0/federato-brand-with-icons.zip`
 - Hub helper:  
   `https://github.com/justinplemel-lang/docs/releases/download/v1.0/ai-enablement-hub-helper.zip`
 
