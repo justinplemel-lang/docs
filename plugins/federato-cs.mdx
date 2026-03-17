@@ -5,16 +5,22 @@ description: "Salesforce updates, meeting prep, and account intelligence — pow
 
 ## What it does
 
-The Federato CS plugin bundles everything a CSM needs to automate account work in Claude. Install one file and you get pre-wired connections to Slack, Gmail, Google Calendar, and Granola, plus slash commands that pull context from all four and generate ready-to-paste outputs.
+The Federato CS plugin bundles everything a CSM needs to automate account work in Claude. Install one file and you get pre-wired connections to Slack, Gmail, Google Calendar, and Granola, plus slash commands, skills, and scheduled tasks that pull context from all four and generate ready-to-paste outputs.
 
 Download from the [Install](/install) page.
 
 <CardGroup cols={2}>
-  <Card title="/salesforce-update" icon="pen-to-square">
+  <Card title="/salesforce-update" icon="pen-to-square" href="/skills/salesforce-biweekly-update">
     Generates bi-weekly Salesforce activity updates from Granola transcripts, Slack threads, and email threads — for one account or all of them at once.
   </Card>
-  <Card title="/meeting-prep" icon="calendar-check">
+  <Card title="/meeting-prep" icon="calendar-check" href="/skills/meeting-prep-template">
     Builds a meeting prep doc for an upcoming customer call — pulls calendar details, past meeting notes, recent Slack activity, and open threads.
+  </Card>
+  <Card title="Slide generation (brand)" icon="palette" href="/skills/federato-brand">
+    Generates slides using Federato brand CSS — colors, typography, crosshair grid, halftone patterns, and slide layouts. Use the skill when you need deck content on-brand.
+  </Card>
+  <Card title="Task Sync" icon="clock" href="/skills/task-sync">
+    Automated morning and EOD action item recaps to a personal Slack channel. Completion detection and carry-forward tracking. Say "set up my task sync" in Cowork to get started.
   </Card>
 </CardGroup>
 
@@ -22,7 +28,7 @@ Download from the [Install](/install) page.
 
 | Component | Details |
 |---|---|
-| **Skills** | Salesforce bi-weekly update formatting, Meeting prep template, Federato brand guidelines |
+| **Skills** | Salesforce bi-weekly update formatting, Meeting prep template, Task Sync, Federato brand guidelines |
 | **Commands** | `/salesforce-update`, `/meeting-prep` |
 | **Connectors** | Slack, Gmail, Google Calendar, Granola |
 | **Memory integration** | Stores your accounts, Slack channels, email domains, and optional workstreams |

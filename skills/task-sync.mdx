@@ -1,0 +1,132 @@
+---
+title: "Task Sync"
+description: "Automated morning and EOD action item tracking with completion detection"
+---
+
+<Info title="Skill detail">
+
+## Task Sync
+
+Task Sync gives every team member an automated daily recap of their open action items, posted to a personal Slack channel twice a day. It pulls from Gmail, Granola meeting transcripts, and Slack — then tracks items across syncs so completed tasks stop showing up.
+
+The system runs two scheduled syncs on weekdays:
+
+- **Morning (8:00 AM)** — Recaps overnight email, recent meetings, and Slack activity. Shows what's on your plate for the day.
+- **End of Day (5:00 PM)** — Captures the full day's activity, marks completed items, and surfaces what carries into tomorrow.
+
+</Info>
+
+Task Sync is included in the [Federato CS Plugin](/plugins/federato-cs). Install the plugin in Cowork and say **"set up my task sync"** to get started. No separate download.
+
+## How completion tracking works
+
+The main improvement over a simple daily digest is that Task Sync remembers what was open yesterday and detects when things get done. It uses three layers:
+
+### Explicit signals
+
+When you finish something, post a quick message in your task channel:
+
+- Reply to a sync message: `done: sent the compliance follow-up`
+- Post standalone: `✅ finished the forms audit`
+- Copy items from the sync and add ✅ next to them
+
+The next sync reads your messages and clears matching items.
+
+### Implicit detection
+
+Even without you saying anything, the sync picks up on resolution signals:
+
+- You replied to an email that was listed as "respond to X"
+- A meeting that needed prep already happened
+- A Slack thread went quiet after a final resolution message
+- Someone confirmed receipt of something you sent
+
+### Stale item flagging
+
+Items that appear in 3+ consecutive syncs get separated into a "Carried Forward" section with a ⏳ flag, so lingering items are visible and you can decide whether to act or drop them.
+
+## Setup
+
+Setting up Task Sync takes about 2 minutes. In Cowork, say **"set up my task sync"** and Claude walks you through it.
+
+<Steps>
+  <Step title="Create your channel">
+    Claude creates a personal Slack channel (e.g., `#yourname-tasks`) or connects to one you already have.
+  </Step>
+  <Step title="Choose what to monitor">
+    Tell Claude which Slack channels and DMs to watch for action items — account channels, team channels, and key DMs where tasks come in.
+  </Step>
+  <Step title="Set your VIPs">
+    Name the people whose requests should always get highlighted in a dedicated VIP section (e.g., your manager, key stakeholders).
+  </Step>
+  <Step title="Confirm schedule">
+    Default is 8:00 AM and 5:00 PM weekdays. Adjust if you prefer different times.
+  </Step>
+</Steps>
+
+Your configuration is saved to memory and persists across sessions. The scheduled tasks start automatically the next business day.
+
+## What the recaps look like
+
+Each sync posts a structured message to your channel:
+
+```
+☀️ Morning Recap — Monday, March 16
+
+✅ Completed Since Last Sync
+• ~Send compliance follow-up to Will Ross~ — marked done by you
+• ~Run sheet through Claude prompt and send Alex questions~ — marked done by you
+
+📧 Email Action Items
+• Waiting on Samba Safety API keys — awaiting response
+
+📝 Meeting Action Items
+• ⚠️ Map new data science fields ASAP — Monday priority
+• Set up subjectivity framework with Brian and Emon
+
+💬 Slack Action Items
+• ⚠️ Lynn Black: QBR deck 1st draft due March 23rd
+• Tommy Brown: Review Submission Triage Enablement doc
+
+⏳ Carried Forward (3+ syncs)
+• Clarify tax/fee disclosure format — first appeared 3/13
+
+⚠️ VIP Items (Will Ross / Lynn Black)
+• Will Ross: ~Compliance follow-up sent~ ✅
+• Lynn Black: QBR review scheduled Friday — start prepping deck
+```
+
+Completed items appear at the top so you can see what's cleared. Open items are organized by source. VIP items get their own section regardless of source.
+
+## Updating your configuration
+
+You can adjust your setup anytime by telling Claude:
+
+| What you want | What to say |
+|---------------|-------------|
+| Add a channel | "Add #design-cs to my task sync" |
+| Remove a channel | "Remove #old-channel from my task sync" |
+| Add a VIP | "Add Megan Bock as a VIP" |
+| Change sync times | "Change my morning sync to 7:30 AM" |
+| Pause syncs | "Stop my task sync" |
+
+## Required connectors
+
+<CardGroup cols={3}>
+  <Card title="Slack" icon="hashtag">
+    Channel messages, threads, and DMs where tasks originate and get resolved
+  </Card>
+  <Card title="Gmail" icon="envelope">
+    Email threads with action items, responses, and meeting invites
+  </Card>
+  <Card title="Granola" icon="microphone">
+    Meeting transcripts with action items, decisions, and commitments
+  </Card>
+</CardGroup>
+
+## Tips
+
+- **Mark things done as you go.** A quick `✅ handled the forms audit` in your channel is faster than waiting for the sync to figure it out.
+- **Thread replies work best.** Replying directly to a sync message makes it easiest for the next sync to match completions to specific items.
+- **Check the Carried Forward section.** If something sits there for a week, it's probably worth either doing or deliberately dropping.
+- **VIPs keep you honest.** Requests from your VIP list always surface, even in a busy sync with 20+ items.
