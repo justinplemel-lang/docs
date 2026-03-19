@@ -1,26 +1,65 @@
 ---
-title: "Install"
-description: "Download skills and the plugin — you need both"
+title: Install
+description: One plugin, everything you need — works in both Cowork and Chat
 ---
 
-## You need both: skills + plugin
+## Install the Federato CS Plugin
 
-There are two things to install, and you should do both. They serve different purposes:
+One install gives you everything: all four skills, slash commands (`/salesforce-update`, `/meeting-prep`, `/task-sync`), and pre-wired connectors for Slack, Gmail, Calendar, and Granola. Works in both Cowork and regular Claude chat.
 
-<Info>
-**Individual skills** work in regular Claude chat — when you open a conversation and ask Claude to write an update or prep for a meeting. You upload each skill separately.
+<Card title="Federato CS Plugin v0.2.5" icon="download" href="https://github.com/justinplemel-lang/docs/releases/download/v1.0/federato-cs-v0.2.5.plugin.zip">
+  Download .plugin — 4 skills, 3 commands, 4 connectors
+</Card>
 
-**The Federato CS Plugin** works in Cowork — where you set up automations, scheduled tasks, and slash commands like `/salesforce-update`. It bundles all skills together with pre-wired connectors.
+<Steps>
+  <Step title="Download the plugin">
+    Click the download card above to get `federato-cs-v0.2.5.plugin.zip`.
+  </Step>
+  <Step title="Open Cowork">
+    In Claude, switch to **Cowork** mode using the toggle at the top.
+  </Step>
+  <Step title="Install the plugin">
+    Go to **Customize → Plugins → + Add** and select your `.plugin` or `.zip` file.
+  </Step>
+  <Step title="Connect your tools">
+    Go to **Customize → Connectors** and connect:
+    - **Slack** — channel messages and threads
+    - **Gmail** — email threads with customers
+    - **Google Calendar** — meeting details and attendees
+    - **Granola** — meeting transcripts (richest data source)
+  </Step>
+  <Step title="Start using it">
+    The skills work automatically in both Cowork and Chat. Try `/salesforce-update` in Cowork, or just ask Claude in chat: "Write my bi-weekly update for Accelerant."
+  </Step>
+</Steps>
 
-Most CSMs use both: the plugin for automated bi-weekly runs in Cowork, and the individual skills for quick one-off requests in chat.
-</Info>
+---
 
-## Step 1: Download and install individual skills
+## What's included
 
-These work in regular Claude chat. Upload each one to Customize → Skills → + Add. Do not unzip.
+<CardGroup cols={2}>
+  <Card title="Slide generation skill (brand CSS)" icon="palette" href="/skills/federato-brand">
+    Generates slides using Federato brand CSS — exact colors, typography, crosshair grid system, background photos, Lucide icon library, and 20+ slide layout patterns.
+  </Card>
+  <Card title="Salesforce bi-weekly update" icon="file-lines" href="/skills/salesforce-biweekly-update">
+    Generates plain-text Salesforce customer updates from Granola, Slack, and Gmail. Pulls the last 1-2 weeks of account activity and formats it for direct copy-paste into Salesforce.
+  </Card>
+  <Card title="Meeting prep template" icon="clipboard-check" href="/skills/meeting-prep-template">
+    Builds branded meeting prep Word documents with context pulled from Calendar, Granola transcripts, and Slack threads. Includes solved/open issue tracking.
+  </Card>
+  <Card title="Task Sync" icon="clock" href="/skills/task-sync">
+    Automated morning and EOD action item recaps posted to a personal Slack channel. Completion detection and carry-forward tracking across Slack, Gmail, and Granola.
+  </Card>
+</CardGroup>
+
+---
+
+## Prefer individual skills?
+
+If you don't want to install the plugin, you can upload skills one at a time to **Customize → Skills → + Add**. Download the `.zip` files below — do not unzip them.
 
 <CardGroup cols={3}>
-  <Card title="Slide generation skill" icon="download" href="https://github.com/justinplemel-lang/docs/releases/download/v1.0/federato-brand-with-icons.zip">
+  <Card title="Slide generation" icon="download" href="https://github.com/justinplemel-lang/docs/releases/download/v1.0/federato-brand-with-icons.zip">
     Download .zip
   </Card>
   <Card title="Salesforce bi-weekly update" icon="download" href="https://github.com/justinplemel-lang/docs/releases/download/v1.0/salesforce-biweekly-update.zip">
@@ -31,86 +70,12 @@ These work in regular Claude chat. Upload each one to Customize → Skills → +
   </Card>
 </CardGroup>
 
-## Step 2: Download and install the Federato CS Plugin
-
-This works in Cowork. It includes all three skills above plus pre-wired connectors for Slack, Gmail, Calendar, and Granola.
-
-<Card title="Federato CS Plugin v0.2.5" icon="download" href="https://github.com/justinplemel-lang/docs/releases/download/v1.0/federato-cs-v0.2.5.plugin.zip">
-  Download .zip — then in Cowork: Customize → Plugins → + Add
-</Card>
-
 <Tip>
-Already installed the individual skills? You still want the plugin — it adds slash commands (`/salesforce-update`, `/meeting-prep`) and lets you schedule automated runs. The skills and plugin don't conflict with each other.
+The plugin is the recommended path — it includes all skills plus slash commands and connectors. Individual skill zips are for users who only want specific skills without the full plugin.
 </Tip>
 
+---
+
 <Card title="New to skills?" icon="book-open" href="/skills/what-are-skills">
-  Read [What are Claude skills?](/skills/what-are-skills) for the full primer — why they matter, what's inside a SKILL.md, skills + MCP, and what makes a good skill.
+  Read **What are Claude skills?** for the full primer — why they matter, what's inside a SKILL.md, reference files, skills + MCP, and what makes a good skill.
 </Card>
-
-## Available skills (learn more)
-
-<Columns cols={2}>
-  <Card
-    title="Slide generation skill (brand CSS)"
-    icon="palette"
-    href="/skills/federato-brand"
-  >
-    Generates slides using Federato brand CSS — exact colors, typography, crosshair grid system, halftone patterns, and slide layouts.
-  </Card>
-  <Card
-    title="Salesforce bi-weekly update"
-    icon="file-lines"
-    href="/skills/salesforce-biweekly-update"
-  >
-    Generates plain-text Salesforce customer updates from Granola, Slack, and Gmail. Pulls the last 1-2 weeks of account activity and formats it for direct copy-paste into Salesforce.
-  </Card>
-  <Card
-    title="Meeting prep template"
-    icon="calendar-check"
-    href="/skills/meeting-prep-template"
-  >
-    Builds branded meeting prep Word documents with context pulled from Calendar, Granola transcripts, and Slack threads. Includes solved/open issue tracking.
-  </Card>
-  <Card
-    title="Task Sync"
-    icon="clock"
-    href="/skills/task-sync"
-  >
-    Automated morning and EOD action item recaps posted to a personal Slack channel. Completion detection and carry-forward tracking. Included in the plugin.
-  </Card>
-</Columns>
-
-## How to install a skill
-
-<Steps>
-  <Step title="Download the skill .zip file">
-    Use the download cards under Step 1 above (Slide generation, Salesforce bi-weekly update, or Meeting prep template).
-  </Step>
-  <Step title="Open Claude → Customize → Skills">
-    In Claude, click **Customize** in the left sidebar, then **Skills**.
-  </Step>
-  <Step title="Add the skill">
-    Click **+ Add** → **Upload a skill**, then select your .zip file (or drag and drop). The .zip must contain a SKILL.md file.
-  </Step>
-  <Step title="Start a new conversation">
-    Claude will automatically use the skill when relevant.
-  </Step>
-</Steps>
-
-### Visual guide
-
-**1. Open Customize** — In Claude's sidebar, click **Customize**.
-
-<img src="/images/install-skill/step1-customize.png" alt="Claude sidebar with Customize highlighted" />
-
-**2. Go to Skills** — In Customize, select **Skills** to see your skills and add new ones.
-
-<img src="/images/install-skill/step2-skills.png" alt="Customize page with Skills and Connectors; Skills selected" />
-
-**3. Upload a skill** — Click the **+** button and choose **Upload a skill**.
-
-<img src="/images/install-skill/step3-upload-skill.png" alt="Skills page with Upload a skill option in the menu" />
-
-**4. Select your .zip** — Drag and drop your skill .zip (e.g. `federato-brand-with-icons.zip` or `salesforce-biweekly-update.zip`) or click to browse.
-
-<img src="/images/install-skill/step4-select-zip.png" alt="Upload skill dialog and file browser showing skill zip files" />
